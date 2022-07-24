@@ -1,10 +1,13 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../models/todo.dart';
 
 class TodoCard extends StatelessWidget {
   final ToDo todo;
-  const TodoCard({Key? key, required this.todo}) : super(key: key);
+  final _random = Random();
+  TodoCard({Key? key, required this.todo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +19,8 @@ class TodoCard extends StatelessWidget {
           width: double.infinity,
           height: 100,
           decoration: BoxDecoration(
-              color: Colors.grey[100],
+              color: Colors.primaries[Random().nextInt(Colors.primaries.length)]
+                  .withOpacity(0.7),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(0.2),
@@ -33,6 +37,7 @@ class TodoCard extends StatelessWidget {
                 todo.todoText,
                 style: const TextStyle(
                   fontSize: 20,
+                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -54,6 +59,7 @@ class TodoCard extends StatelessWidget {
               Text(
                 todo.belongTo,
                 style: const TextStyle(
+                  color: Colors.white,
                   fontSize: 15,
                 ),
               ),

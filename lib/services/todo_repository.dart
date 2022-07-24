@@ -26,4 +26,42 @@ class TodoRepository {
       throw DataError(message: err.toString());
     }
   }
+
+  static Future<List<ToDo>> getTodoDone() async {
+    const requestUrl = '${_baseurl}list/done';
+
+    try {
+      final response = await http.Client().get(Uri.parse(requestUrl));
+
+      if (response.statusCode == 200) {
+        final json = jsonDecode(response.body) as Map<String, dynamic>;
+        final data = json['data']['todo'] as List<dynamic>;
+
+        return data.map((e) => ToDo.fromMap(e)).toList();
+      } else {
+        throw Exception('Failed to load data');
+      }
+    } catch (err) {
+      throw DataError(message: err.toString());
+    }
+  }
+
+  static Future<List<ToDo>> getTodoCreate() async {
+    const requestUrl = '${_baseurl}create';
+
+    try {
+      final response = await http.Client().get(Uri.parse(requestUrl));
+
+      if (response.statusCode == 200) {
+        final json = jsonDecode(response.body) as Map<String, dynamic>;
+        final data = json['data']['todo'] as List<dynamic>;
+
+        return data.map((e) => ToDo.fromMap(e)).toList();
+      } else {
+        throw Exception('Failed to load data');
+      }
+    } catch (err) {
+      throw DataError(message: err.toString());
+    }
+  }
 }

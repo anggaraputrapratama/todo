@@ -27,7 +27,7 @@ class TodoRepository {
     }
   }
 
-  static Future<List<ToDo>> getTodoDone() async {
+  static Future<List<ToDo>> getTodosDone() async {
     const requestUrl = '${_baseurl}list/done';
 
     try {

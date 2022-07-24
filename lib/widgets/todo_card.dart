@@ -6,8 +6,7 @@ import '../models/todo.dart';
 
 class TodoCard extends StatelessWidget {
   final ToDo todo;
-  final _random = Random();
-  TodoCard({Key? key, required this.todo}) : super(key: key);
+  const TodoCard({Key? key, required this.todo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,7 @@ class TodoCard extends StatelessWidget {
           height: 100,
           decoration: BoxDecoration(
               color: Colors.primaries[Random().nextInt(Colors.primaries.length)]
-                  .withOpacity(0.7),
+                  .withOpacity(0.5),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(0.2),
@@ -41,18 +40,18 @@ class TodoCard extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                'STATUS: ${todo.status}',
-                style: TextStyle(
-                    fontSize: 15,
-                    color: (todo.status == 'done') && (todo.status == 'Done')
-                        ? Colors.green
-                        : Colors.red,
-                    fontWeight: FontWeight.w600),
-              ),
+              // const SizedBox(
+              //   height: 10,
+              // ),
+              // Text(
+              //   'STATUS: ${todo.status}',
+              //   style: TextStyle(
+              //       fontSize: 15,
+              //       color: (todo.status == 'done') && (todo.status == 'Done')
+              //           ? Colors.green
+              //           : Colors.red,
+              //       fontWeight: FontWeight.w600),
+              // ),
               const SizedBox(
                 height: 10,
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/widgets/add_todo.dart';
 import 'package:todo/widgets/side_menu.dart';
 
 import '../widgets/todo_notyet_display.dart';
@@ -24,12 +25,16 @@ class _HomePageState extends State<HomePage> {
           child: SizedBox(
         height: MediaQuery.of(context).size.height,
         child: ListView(
-          children: const [
-            TopHeader(),
-            TodoListNotYet(),
-          ],
+          children: const [TopHeader(), TodoListNotYet()],
         ),
       )),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const AddTask()));
+        },
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }

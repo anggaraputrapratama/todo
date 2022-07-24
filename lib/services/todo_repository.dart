@@ -46,7 +46,8 @@ class TodoRepository {
     }
   }
 
-  static Future<List<ToDo>> getTodoCreate() async {
+  static Future<List<ToDo>> getTodoCreate(
+      String todoText, String belong) async {
     const requestUrl = '${_baseurl}create';
 
     try {
